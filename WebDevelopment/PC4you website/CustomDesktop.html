@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>PC 4 you - DesktopBuilder</title>
+		<link rel="stylesheet" type="text/css" href="Style.css">
+	</head>
+	
+	<body>
+<div id="wrapper">
+
+	<nav>
+		<ul>
+		<li> <a class="aImg" href="HomePage.html"><img src="Img/logo.png" height="100%"> </li>
+		<li id="NavButton"> <a href="AboutUs.html">About us</a> </li>
+		<li id="NavButtonSel"> <a href="CustomDesktop.html">Custom Desktop</a> </li>
+		<li id="NavButton"> <a href="Contact.html">Contact</a> </li>
+		<li id="NavButton"> <a href="Bestellingen.html">Bestellingen</a> </li>
+		<li id="Reflectie"> <a target="_blank" rel="noreferrer noopen" href="Reflectie.html">Reflectie</a> </li>
+		</ul>
+	</nav>
+	
+	<div id="FormArt">
+		<div id="ArtContentForm">
+	<form id="techForm">
+		<label for="Naam">	Volledige naam:		</label> <br>
+		<input type="text" id="Naam" name="Naam" required> <br>
+		
+		<label for="Email">	Email:				</label>	<br>
+		<input type="email" id="Email" name="Email" required> <br>
+			
+		<label for="Budget">Budget:				</label> <br>
+		<input  type="text" id="Budget" name="Budget" required><br>
+		
+		<label>	Gebruik:			</label> <br>
+			<input type="checkbox" id="checkbox1" value="Data verwerking" name="Gebruik">
+			<label for="checkbox1">Data verwerking</label><br>
+			
+			<input type="checkbox" id="checkbox2" value="Designing" name="Gebruik">
+			<label for="checkbox2">Designing</label><br>
+			
+			<input type="checkbox" id="checkbox3" value="Meetings" name="Gebruik">
+			<label for="checkbox3">Meetings</label><br>
+			
+			<input type="checkbox" id="checkbox4" value="Thuiscomputer" name="Gebruik">
+			<label for="checkbox4">Thuiscomputer</label><br>
+			
+			<input type="checkbox" id="checkbox5" value="Gaming" name="Gebruik">
+			<label for="checkbox5">Gaming</label><br>
+			
+			<input type="checkbox" id="Anders" value="Anders" name="Gebruik">
+			<value for="Anders">Anders:</label>
+			<input type="text" id="otherText" name="otherText"><br>
+			
+		<label for="wifi">Wi-Fi</label><br>
+			<input type="radio" id="Bedraad" name="wifiType" value="Bedraad">
+			<label for="Bedraad">Bedraad</label><br>
+			
+			<input type="radio" id="Draadloos" name="wifiType" value="Draadloos">
+			<label for="Draadloos">Draadloos</label><br>
+			
+			<input type="radio" id="Beiden" name="wifiType" value="Beide">
+			<label for="Beiden">Beide</label><br>
+			
+		<label for="Voorkeur">Voorkeur voor een onderdeel?:</label><br>	
+		<textarea id="Voorkeur" name="comments" rows="4" placeholder="Leeg is geen voorkeur"></textarea><br>
+			
+		<input id="Submit" type="button" value="Verstuur" onclick="submitForm()">
+		</form>
+		</div>
+	</div>
+			<!--dit is dus gekopieerd-->
+		<script>
+		function submitForm() {
+			var form = document.getElementById("techForm");
+			var name = form.elements["Naam"].value;
+			var email = form.elements["Email"].value;
+			var Budget = form.elements["Budget"].value;
+			var preferences = [];
+
+		// Loop through checkboxes with the name "Gebruik" to get selected values
+			var checkboxes = form.elements["Gebruik"];
+			for (var i = 0; i < checkboxes.length; i++) {
+				if (checkboxes[i].checked) {
+					if (checkboxes[i].value === "Other") {
+						// Include the value from the "Other" text input
+						preferences.push("Other: " + form.elements["otherText"].value);
+					} else {
+						preferences.push(checkboxes[i].value);
+					}
+				}
+			}
+
+		var wifiType = form.elements["wifiType"].value;
+		
+		var comments = form.elements["comments"].value;
+
+		// Build the email body
+		var subject = "PC4you BV Formulier, van " + name;
+		var body = "Naam: " + name + "\n";
+		body += "Email: " + email + "\n";
+		body += "Gebruik: " + preferences.join(", ") + "\n";
+		body += "Wi-Fi: " + wifiType + "\n";
+		body += "Voorkeur voor een onderdeel: " + comments + "\n";
+		body += "\n" + "Gelieve niks aan te passen aan dit formulier." + "\n";
+		body += "Na het sturen van de mail mag u ook de site sluiten" + "\n";
+
+		// Create a mailto link
+		var mailtoLink = "mailto:pc4you.social@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+		// Open the user's email client
+		window.location.href = mailtoLink;
+	}
+</script>
+	</div>
+	
+	<footer>
+		<h5><a target="_blank" rel="noreferrer noopener" href="https://www.instagram.com/pc4you_social/"><img id="SocialImg" src="Img/InstaIcon.png" height="30"> </a>
+			<a target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/profile.php?id=61554801021726"><img id="SocialImg" src="Img/FacebookIcon.png" height="30"> </a>
+			<a target="_blank" rel="noreferrer noopener" href="https://twitter.com/PC4you03697"><img id="SocialImg" src="Img/TwitterIcon.png" height="30"> </a><br>
+			<a href="Credit.html"><b><u>Credits</u></b></a></h5>
+	</footer>
+	
+</div>
+	</body>
+</html>
