@@ -101,13 +101,3 @@ plt.plot(plot["europa"][0], plot["europa"][1], color='blue', linewidth = '1')
 plt.plot(plot["io"][0], plot["io"][1], color='purple', linewidth = '1')
 plt.plot(0,0, marker='*', color='orange')
 plt.show()
-        
-
-            
-
-
-    
-
-
-
-
